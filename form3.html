@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Membership Registration Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f4f8;
+            padding: 20px;
+        }
+
+        form.container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #f0f4f8;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"] input[type="email"] input[type="tel"] textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 14px;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            margin-bottom: 15px;
+        }
+
+        .radio-group label,
+        .checkbox-group label {
+            font-weight: normal;
+            margin-right: 15px;
+        }
+
+        textarea {
+            height: 100px;
+            width: 300px;
+        }
+
+        .terms {
+            margin-bottom: 20px;
+        }
+        button{
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            color: wheat;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Membership Registration Form</h2>
+        <form action="/form3.html" method="post" autocomplete="on">
+            <!-- Personal Info    -->
+            <label for="first-name">Nama Depan</label>
+            <input type="text" id="first-name" name="first-name" placeholder="Contoh : Ahmad " maxtlength="20">
+            <!-- Nama Belakang -->
+            <label for="last-name">Nama Belakang</label>
+            <input type="text" id="last-name" name="last-name" placeholder="Contoh : Zaidan " maxtlength="20">
+            <!-- Email -->
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="nama@gmail.com" required>
+            <!-- Nomor HP -->
+            <label for="phone">Nomor HP</label>
+            <input type="tel" id="phone" name="phone" placeholder="08xxxxxxx" required>
+
+            <label for="address1">Address Line 1</label>
+            <input type="text" id="address1" name="address1" placeholder="Enter Your Address Line 1" required>
+
+            <label for="address2">Address Line 2</label>
+            <input type="text" id="address2" name="address2" placeholder="Enter Your Address Line 1">
+
+            <label for="country">Country</label>
+            <select id="country" name="country" required>
+                <option value="">Select Country</option>
+                <option value="USA" selected>United States of America</option>
+                <option value="Indonesia">Indonesia</option>
+                <option value="UK">United Kingdom</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label>Membership Type</label>
+            <div class="radio-group">
+                <label><input type="radio" name="membership" value="Basic" required> Basic</label>
+                <label><input type="radio" name="membership" value="Premium"> Premium</label>
+                <label><input type="radio" name="membership" value="Elite"> Elite</label>
+            </div>
+
+            <label>Interests</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="interests" value="Football"> Football</label>
+                <label><input type="checkbox" name="interests" value="Basketball"> Basketball</label>
+                <label><input type="checkbox" name="interests" value="Soccer"> Soccer</label>
+                <label><input type="checkbox" name="interests" value="Hockey"> Hockey</label>
+                <label><input type="checkbox" name="interests" value="Other"> Other</label>
+            </div>
+
+            <!-- Reason -->
+            <label for="reason">Why do you want to become a member?</label>
+            <textarea id="reason" name="reason" required></textarea>
+
+            <!-- Terms -->
+            <div class="terms">
+                <label><input type="checkbox" name="terms" required> I agree to the terms and conditions.</label>
+            </div>
+
+            <button type="submit">Submit Registration</button>
+
+        </form>
+    </div>
+
+</body>
+
+</html>
