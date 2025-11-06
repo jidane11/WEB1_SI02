@@ -1,0 +1,62 @@
+INTERNAL CSS
+        p {
+            color: red;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        html,body {
+            background-color: lightgrey;
+            background: linear-gradient(rgb(79, 196, 11),rgba(71, 105, 180, 0.226), rgba(21, 255, 0, 0.267));
+            cursor: url(images.png) auto;
+        }
+
+        h1,
+        h2 {
+            color: blue;
+            text-align: center;
+        }
+
+        .tulis1 {
+            color: purple;
+            font-size: 20px;
+            font-family: 'Arial';
+            font-style: italic;
+        }
+
+        #tulis2 {
+            color: green;
+            font-size: 20px;
+            font-family: 'Verdana';
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:link {
+            color: blue;
+        }
+
+        a:visited {
+            color: purple;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        a:active {
+            color: green;
+        }
+
+        p::first-line {
+            font-weight: bold;
+            color: orange;
+        }
+
+        p::first-letter {
+            font-size: 2em;
+        }
