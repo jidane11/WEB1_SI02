@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style3.css">
+    <title>Volunteer Sign Up Form</title>
+    <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .checkbox-group,
+    .day-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .checkbox-group label,
+    .day-group label {
+      font-weight: normal;
+    }
+
+    .agreement {
+      margin-top: 20px;
+    }
+
+     .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Volunteer Sign Up Form</h2>
+        <form action="/form4.html" method="get" autocomplete="on">
+
+            <!-- Personal Information -->
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="role">Preferred Volunteer Role</label>
+            <select id="role" name="role" required>
+                <option value="">-- Select Role --</option>
+                <option value="event">Event Organizer</option>
+                <option value="logistics">Logistics Support</option>
+                <option value="tech">Technical Assistant</option>
+                <option value="mentor">Mentor</option>
+            </select>
+
+            <!-- Availability -->
+            <label>Days Available</label>
+            <div class="day-group">
+                <label><input type="checkbox" name="days" value="Sunday"> Sunday</label>
+                <label><input type="checkbox" name="days" value="Monday"> Monday</label>
+                <label><input type="checkbox" name="days" value="Tuesday"> Tuesday</label>
+                <label><input type="checkbox" name="days" value="Wednesday"> Wednesday</label>
+                <label><input type="checkbox" name="days" value="Thursday"> Thursday</label>
+                <label><input type="checkbox" name="days" value="Friday"> Friday</label>
+                <label><input type="checkbox" name="days" value="Saturday"> Saturday</label>
+            </div>
+
+            <label for="startTime">Available Start Time</label>
+            <input type="text" id="startTime" name="startTime" placeholder="e.g. 08:00">
+
+            <label for="endTime">Available End Time</label>
+            <input type="text" id="endTime" name="endTime" placeholder="e.g. 17:00">
+
+            <!-- Skills and Interests -->
+            <label for="skills">Skills and Experience</label>
+            <textarea id="skills" name="skills" rows="4" cols="36"
+                placeholder="Enter your Skills dan Experience"></textarea>
+
+            <label>Interests</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="interests" value="Animals"> Animals</label>
+                <label><input type="checkbox" name="interests" value="Children"> Children</label>
+                <label><input type="checkbox" name="interests" value="Environment"> Environment</label>
+                <label><input type="checkbox" name="interests" value="Health"> Health</label>
+                <label><input type="checkbox" name="interests" value="Education"> Education</label>
+                <label><input type="checkbox" name="interests" value="Community"> Community</label>
+            </div>
+
+            <!-- Agreement -->
+            <div class="agreement">
+                <label><input type="checkbox" name="agree" required> I agree to the terms and conditions</label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Submit</button>
+            </form>
+            </div>
+
+</body>
+
+</html>
