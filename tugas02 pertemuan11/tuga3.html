@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tugas3</title>
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        /* Style untuk Pertanyaan */
+        .faq-question {
+            background-color: #f9f9f9;
+            color: #444;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        /* Class yang ditambahkan saat hover (untuk memenuhi ketentuan) */
+        .hover-blue {
+            background-color: #3498db !important; /* Gunakan !important untuk memastikan override */
+            color: white !important;
+            border-color: #3498db;
+        }
+        /* Style untuk Jawaban */
+        .faq-answer {
+            background-color: #eee;
+            padding: 15px;
+            border-left: 5px solid #3498db;
+            margin-bottom: 20px;
+            display: none; /* Awalnya disembunyikan */
+            border-radius: 0 4px 4px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pertanyaan yang Sering Diajukan (FAQ)</h1>
+
+        <div class="faq-question">1. Apa itu jQuery?</div>
+        <div class="faq-answer">
+            jQuery adalah library JavaScript yang cepat, kecil, dan kaya fitur. Ini membuat hal-hal seperti manipulasi dokumen HTML, penanganan event, animasi, dan interaksi Ajax menjadi jauh lebih sederhana.
+        </div>
+
+        <div class="faq-question">2. Bagaimana cara menginstal jQuery?</div>
+        <div class="faq-answer">
+            Anda dapat menginstalnya dengan mengunduh file, atau lebih umum, dengan menyertakan tag script dari CDN (Content Delivery Network), seperti yang dilakukan di kepala dokumen ini.
+        </div>
+
+        <div class="faq-question">3. Apa perbedaan .hide() dan .toggle()?</div>
+        <div class="faq-answer">
+            Metode **.hide()** hanya menyembunyikan elemen. Metode **.toggle()** lebih pintar; jika elemen terlihat, ia akan menyembunyikannya, dan jika elemen tersembunyi, ia akan menampilkannya.
+        </div>
+
+        <div class="faq-question">4. Apa fungsi utama selector di jQuery?</div>
+        <div class="faq-answer">
+            Selector digunakan untuk "menemukan" (memilih) elemen HTML berdasarkan nama elemen, ID, kelas, atribut, atau lainnya. Selector memungkinkan kita melakukan manipulasi pada elemen yang dipilih.
+        </div>
+
+        <div class="faq-question">5. Apakah jQuery masih relevan saat ini?</div>
+        <div class="faq-answer">
+            Meskipun framework modern (seperti React atau Vue) lebih populer, jQuery masih digunakan secara luas, terutama untuk proyek yang membutuhkan manipulasi DOM yang cepat dan sederhana tanpa kompleksitas framework penuh.
+        </div>
+    </div>
+    <script>
+        // Pastikan kode jQuery dijalankan setelah dokumen siap
+        $(document).ready(function() {
+            
+            // 1. Interaksi Klik (.click() & .toggle())
+            $(".faq-question").click(function() {
+                // Selector: $(this) merujuk pada elemen .faq-question yang baru saja diklik.
+                
+                // Metode .next() memilih elemen saudara yang tepat setelah elemen yang diklik (yaitu, .faq-answer).
+                // Metode .toggle() kemudian menampilkan atau menyembunyikan elemen tersebut.
+                $(this).next(".faq-answer").toggle(300); // 300ms untuk animasi transisi halus
+            });
+            
+            // 2. Interaksi Hover (.hover())
+            $(".faq-question").hover(
+                // Fungsi 1 (Mouse masuk/hover)
+                function() {
+                    // Menambahkan kelas CSS 'hover-blue' saat kursor masuk
+                    $(this).addClass("hover-blue");
+                },
+                // Fungsi 2 (Mouse keluar/unhover)
+                function() {
+                    // Menghapus kelas CSS 'hover-blue' saat kursor keluar
+                    $(this).removeClass("hover-blue");
+                }
+            );
+
+        });
+    </script>
+</body>
+</html>

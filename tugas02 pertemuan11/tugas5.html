@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Notifikasi Variasi Lengkap</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    .notif-container {
+      position: fixed;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .top-right { top: 20px; right: 20px; }
+    .top-left { top: 20px; left: 20px; }
+    .bottom-right { bottom: 20px; right: 20px; }
+    .bottom-left { bottom: 20px; left: 20px; }
+
+    .notif {
+      display: none;
+      padding: 12px 16px;
+      border-radius: 8px;
+      width: 280px;
+      color: #fff;
+      font-family: Arial;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+      gap: 10px;
+    }
+
+    .notif .icon {
+      font-size: 22px;
+    }
+  </style>
+</head>
+<body>
+
+<button id="successBtn">Success</button>
+<button id="warningBtn">Warning</button>
+<button id="dangerBtn">Error</button>
+<button id="infoBtn">Info</button>
+
+<br><br>
+Pilih posisi: 
+<select id="posisi">
+  <option value="top-right">Top Right</option>
+  <option value="top-left">Top Left</option>
+  <option value="bottom-right">Bottom Right</option>
+  <option value="bottom-left">Bottom Left</option>
+</select>
+
+<!-- container -->
+<div class="notif-container top-right"></div>
+
+<script>
+$(function(){
+
+  function buatNotif(jenis, pesan) {
+
+    // icon + warna otomatis
+    const tipe = {
+      success : {icon:"✔️", color:"#2ecc71"},
+      warning : {icon:"⚠️", color:"#f1c40f", text:"#000"},
+      danger  : {icon:"❌", color:"#e74c3c"},
+      info    : {icon:"ℹ️", color:"#3498db"}
+    };
+
+    let cfg = tipe[jenis];
+
+    // update posisi
+    let pos = $("#posisi").val();
+    $(".notif-container").attr("class","notif-container " + pos);
+
+    // buat elemen notifikasi
+    let $n = $(`
+      <div class="notif">
+        <span class="icon">${cfg.icon}</span>
+        <span>${pesan}</span>
+      </div>
+    `);
+
+    $n
+      .css("background-color", cfg.color)
+      .css("color", cfg.text || "#fff")
+      .appendTo(".notif-container")   // stacking
+      .fadeIn(300)                    // chaining
+      .slideDown(300)
+      .delay(3000)
+      .slideUp(300)
+      .fadeOut(300, function(){
+        $(this).remove();
+      });
+  }
+
+  // tombol trigger
+  $("#successBtn").click(()=> buatNotif("success", "Berhasil diproses!"));
+  $("#warningBtn").click(()=> buatNotif("warning", "Perhatikan kembali datanya."));
+  $("#dangerBtn").click(()=> buatNotif("danger", "Terjadi kesalahan!"));
+  $("#infoBtn").click(()=> buatNotif("info", "Ini hanya informasi."));
+  
+});
+</script>
+
+</body>
+</html>

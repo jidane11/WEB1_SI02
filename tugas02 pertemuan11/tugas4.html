@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas4</title>
+
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+<body>
+    <h1>Slideshow Gambar Sederhana</h1>
+
+    <div class="slideshow-container">
+        <!-- Gambar 1 (Awalnya ditampilkan) -->
+        <div class="slide" data-index="0" style="display: block;">
+            <img src="google.jpeg" alt="Gambar 1">
+        </div>
+
+        <!-- Gambar 2 -->
+        <div class="slide" data-index="1">
+            <img src="images (1).png" alt="Gambar 2">
+        </div>
+
+        <!-- Gambar 3 -->
+        <div class="slide" data-index="2">
+            <img src="images (2).png" alt="Gambar 3">
+        </div>
+    </div>
+
+    <div class="controls">
+        <button id="prevBtn">« Prev</button>
+        <button id="nextBtn">Next »</button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Ambil semua slide dan hitung jumlahnya
+            const slides = $(".slide");
+            const totalSlides = slides.length;
+            let currentIndex = 0; // Mulai dari slide pertama (index 0)
+
+            // Fungsi untuk menampilkan slide berdasarkan index
+            function showSlide(index) {
+                // 1. Sembunyikan slide yang sedang aktif dengan efek fadeOut()
+                // Gunakan siblings() untuk mendapatkan semua slide KECUALI slide yang akan ditampilkan.
+                slides.eq(currentIndex).fadeOut(500); 
+
+                // 2. Perbarui index
+                currentIndex = index;
+
+                // 3. Tampilkan slide baru dengan efek fadeIn()
+                slides.eq(currentIndex).fadeIn(500);
+            }
+
+            // Handler untuk Tombol NEXT
+            $("#nextBtn").click(function() {
+                // Hitung index baru: (index saat ini + 1) modulus jumlah total slide
+                // Modulus memastikan kembali ke 0 setelah mencapai slide terakhir
+                let nextIndex = (currentIndex + 1) % totalSlides;
+                showSlide(nextIndex);
+            });
+
+            // Handler untuk Tombol PREV
+            $("#prevBtn").click(function() {
+                // Hitung index baru: 
+                // Jika index saat ini 0, pindah ke slide terakhir (totalSlides - 1)
+                // Jika tidak, kurangi 1
+                let prevIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                showSlide(prevIndex);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 2</title>
+</head>
+<body>
+    <div class="container">
+        <h2>To-Do List</h2>
+        
+        <div class="input-group">
+            <input type="text" id="inputTask" placeholder="Tulis tugas baru...">
+            <button class="btn-add" onclick="tambahTask()">Tambah</button>
+        </div>
+
+        <button class="btn-del" onclick="hapusTerakhir()">Hapus Terakhir</button>
+
+        <ul id="listContainer">
+            </ul>
+    </div>
+
+    <script>
+        // Mengambil referensi elemen parent (ul)
+        const listContainer = document.getElementById("listContainer");
+
+        // FUNGSI 1: Menambah Task (create & append)
+        function tambahTask() {
+            // Ambil value dari input
+            const inputElement = document.getElementById("inputTask");
+            const text = inputElement.value;
+
+            // Validasi: Jangan tambah jika kosong
+            if (text === "") {
+                alert("Mohon isi tugas terlebih dahulu!");
+                return;
+            }
+
+            // 1. createElement()
+            // Membuat elemen <li> baru yang masih tersimpan di memori (belum tampil)
+            const newItem = document.createElement("li");
+
+            // Mengisi konten teks ke dalam <li>
+            newItem.innerText = text;
+
+            // 2. appendChild()
+            // Menempelkan elemen <li> yang baru dibuat ke dalam <ul>
+            listContainer.appendChild(newItem);
+
+            // Reset input field agar kosong kembali
+            inputElement.value = "";
+            inputElement.focus(); // Mengembalikan kursor ke input
+        }
+
+        // FUNGSI 2: Menghapus Task Terakhir (removeChild)
+        function hapusTerakhir() {
+            // Cek apakah list memiliki anak (child)
+            // lastElementChild adalah cara aman memilih elemen terakhir (mengabaikan spasi/enter)
+            const lastItem = listContainer.lastElementChild;
+
+            if (lastItem) {
+                // 3. removeChild()
+                // Menghapus elemen anak spesifik dari parent-nya
+                listContainer.removeChild(lastItem);
+            } else {
+                alert("List sudah kosong!");
+            }
+        }
+    </script>
+</body>
+</html>
